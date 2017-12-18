@@ -27,12 +27,12 @@ namespace QuantIX.Signals
         {
             LastCount = Max(LastCount, argI - Period + 1);
             var data = Source[argI];
-            var high = Range(LastCount, argI + 1).Max();
-            var low = Range(LastCount, argI + 1).Min();
+            var high = Range(LastCount, argI + 1).Select(i => Source[i]).Max();
+            var low = Range(LastCount, argI + 1).Select(i => Source[i]).Min();
             var result = high - data > Diff || data - low > Diff;
             if (result)
             {
-                LastCount = Data.Count;
+                LastCount = Data.Count + 1;
             }
             return result;
         }
