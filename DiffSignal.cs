@@ -2,7 +2,7 @@
 using QuantTC;
 using QuantTC.Indicators.Generic;
 using static System.Math;
-using static QuantTC.Functions;
+using static QuantTC.X;
 
 namespace QuantIX.Signals
 {
